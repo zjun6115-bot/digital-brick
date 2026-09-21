@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>砖上有铭 · 城砖三部曲 — 路演 DEMO</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= 启动页：点击解锁视频自动播放 ================= -->
+<div id="boot">
+  <div class="wall dark"></div>
+  <div class="wall lit"></div>
+  <div id="bootFind" title="这块砖……好像不太一样"></div>
+  <img class="ttimg" src="assets/img/boot-title.png" alt="砖上有铭">
+  <div class="ss">城墙无声　砖上有名</div>
+  <button class="go" id="bootGo" type="button"><span class="gi"><span class="gt">点击开始</span></span></button>
+  <div id="bootFindPop">
+    <div class="card">
+      <img src="assets/img/boot-brick.jpg" alt="造砖人夫刘德华铭文砖">
+      <div class="cap1">你发现了一块有名字的砖</div>
+      <div class="cap2">「……窑匠／甲首／<b>造砖人夫&nbsp;刘德华</b>」</div>
+      <div class="cap3">六百年前，一位与天王同名的窑工，把名字烧进了南京城墙。<br>这块真砖，今藏于南京城墙博物馆。</div>
+      <div class="cap4">点击任意处收起</div>
+    </div>
+  </div>
+</div>
+
+<div id="viewport">
+<div id="stage">
+
+  <!-- B 背景层：视频 / 静帧 / CSS 占位，四级降级 -->
+  <div id="bg" class="layer-bg"></div>
+  <div id="vignette" class="layer-mask"></div>
+
+  <!-- B 热点层：观察点 / NFC 长按点 / 搜证点（百分比定位） -->
+  <div id="hot" class="layer-hot"></div>
+
+  <!-- 人物立绘（对白时说话人出场） -->
+  <div id="portrait"></div>
+
+  <!-- A 顶部章节条 -->
+  <div id="topbar" class="layer-topbar"></div>
+
+  <!-- E 交互占位提示条 -->
+  <div id="hint"></div>
+
+  <!-- C 底部文字与选项区 -->
+  <div id="panel" class="layer-panel"></div>
+
+  <!-- D 线索册入口 + 面板 -->
+  <div id="clueBtn">
+    <div class="n">铭</div>
+    <div class="t">线索册</div>
+  </div>
+  <div id="clueBook" data-tab="case1"></div>
+
+  <!-- 特写蒙层 -->
+  <div id="zoom" class="layer-modal"></div>
+
+  <!-- 文物档案 -->
+  <div id="archive" class="layer-modal"></div>
+
+  <!-- 特殊交互容器（fx.js 填充） -->
+  <div id="fx"></div>
+
+  <!-- 转场 -->
+  <div id="fade"></div>
+
+  <!-- 案件卡 / 章节结算 -->
+  <div id="chapterEnd"></div>
+
+  <!-- 终局 -->
+  <div id="finalName"></div>
+
+  <!-- 演示模式面板 -->
+  <div id="devPanel" class="layer-dev"></div>
+
+  <div id="toast"></div>
+
+</div>
+</div>
+
+<!-- 顺序加载：禁 type="module"（file:// 下会被 CORS 拦死） -->
+<script src="js/story.js"></script>
+<script src="js/bgm.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/engine.js"></script>
+<!-- 摄像头手势联动：仅 https/localhost 生效，file:// 下自动休眠 -->
+<script src="js/gesture.js"></script>
+</body>
+</html>
